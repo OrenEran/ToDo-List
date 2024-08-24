@@ -1,0 +1,82 @@
+/* index.css */
+
+/* עיצובים כלליים */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/todo-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* עיצוב טופס ה-Login */
+form {
+  background-color: rgba(255, 255, 255, 0.9); /* רקע לבן שקוף מעט */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+form h2 {
+  text-align: center;
+  color: #333;
+}
+
+form input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #ef7360;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+form button[type="submit"]:hover {
+  background-color: #d9543f;
+}
+
+form p {
+  text-align: center;
+}
+
+form button[type="button"] {
+  background: none;
+  border: none;
+  color: #ef7360;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+form button[type="button"]:hover {
+  color: #d9543f;
+}

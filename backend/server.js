@@ -16,7 +16,7 @@ const connectionURL = process.env.MONGO_URI;
 
 // CORS configuration
 app.use(cors({
-  origin: 'http://localhost:5173', // Replace with your frontend's URL
+  origin: 'https://to-do-list-chi-wine.vercel.app:5173', // Replace with your frontend's URL  origin: 'http://localhost:5173'
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization'
 }));

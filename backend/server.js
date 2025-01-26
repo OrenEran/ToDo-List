@@ -15,10 +15,23 @@ const port = process.env.PORT || 8000;
 const connectionURL = process.env.MONGO_URI;
 
 // CORS configuration
+const allowedOrigins = [
+  'http://localhost:5173', // Local development
+  'https://to-do-list-chi-wine.vercel.app', // Production
+];
+
 app.use(cors({
-  origin: 'https://to-do-list-chi-wine.vercel.app:5173', // Replace with your frontend's URL  origin: 'http://localhost:5173'
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman or server-to-server calls)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true, // Support cookies or other credentials
 }));
 
 // Middlewares
@@ -30,7 +43,7 @@ app.use('/api', todoRoutes);
 app.use('/api', categoryRoutes);
 
 // DB Config
-mongoose.connect(connectionURL)
+mongoose.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     app.listen(port, () => console.log(`Connected to MongoDB, running on port: ${port}`));
     seedCategories();
